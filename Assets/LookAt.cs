@@ -14,6 +14,7 @@ public class LookAt : MonoBehaviour
 
         Vector3 dir = targetPosition - selfPosition;
 
-        transform.rotation= Quaternion.LookRotation(dir);
+        if (dir != Vector3.zero)
+            transform.rotation= Quaternion.LookRotation(dir);
     }
 }
