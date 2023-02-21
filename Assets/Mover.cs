@@ -17,15 +17,31 @@ class Mover : MonoBehaviour
 
         float x = 0;
         if (right)
+        {
             x += 1;
+            transform.rotation = Quaternion.LookRotation(new Vector3(1, 0, 0));
+        }
+            
         if (left)
+        {
             x -= 1;
+            transform.rotation = Quaternion.LookRotation(new Vector3(-1, 0, 0));
+        }
+            
 
         float z = 0;
         if (up)
+        {
             z += 1;
+            transform.rotation = Quaternion.LookRotation(new Vector3(0, 0, 1));
+        }
         if (down)
+        {
             z -= 1;
+            transform.rotation = Quaternion.LookRotation(new Vector3(0, 0, -1));
+        }
+           
+
         /*if (up)
         {
             transform.position += cameraTransform.transform.forward * Time.deltaTime * speed;
