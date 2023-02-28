@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using UnityEngine;
 
 class Mover : MonoBehaviour
@@ -7,8 +8,19 @@ class Mover : MonoBehaviour
     [SerializeField] bool moveInCameraSpace;
     [SerializeField] float angularVelocity = 90f;
 
+    [SerializeField] HealthObject healthObject;
+
+    void OnValidate()
+    {
+        if(healthObject == null)
+            healthObject = gameObject.GetComponent<HealthObject>();
+    }
+
     void Update()
     {
+
+        if(healthObject.currentHealth <= 0) return;
+
         bool up = Input.GetKey(KeyCode.UpArrow);
         bool down = Input.GetKey(KeyCode.DownArrow);
         bool left = Input.GetKey(KeyCode.LeftArrow);
