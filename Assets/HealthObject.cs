@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthObject : MonoBehaviour
 {
     [SerializeField, Min(1)] int maxHealth = 100;
 
-    public int currentHealth;
+    int currentHealth;
 
     void Start()
     {
@@ -28,5 +26,10 @@ public class HealthObject : MonoBehaviour
             //GetComponent<Collider>().enabled=false;
             //GetComponent<Mover>().enabled = false;
         }
+    }
+
+    public bool IsAlive()
+    {
+        return currentHealth > 0;
     }
 }

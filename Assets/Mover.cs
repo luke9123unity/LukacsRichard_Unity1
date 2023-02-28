@@ -18,8 +18,15 @@ class Mover : MonoBehaviour
 
     void Update()
     {
+        if(healthObject != null)
+        {
+            if(!healthObject.IsAlive()) return;
+        }
 
-        if(healthObject.currentHealth <= 0) return;
+        /*if(healthObject != null && healthObject.IsAlive())
+        {
+            return;
+        }*/
 
         bool up = Input.GetKey(KeyCode.UpArrow);
         bool down = Input.GetKey(KeyCode.DownArrow);
