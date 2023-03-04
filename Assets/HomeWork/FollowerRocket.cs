@@ -6,14 +6,16 @@ public class FollowerRocket : MonoBehaviour
 {
     [SerializeField] Transform target;
 
-    void Start()
-    {
-        
-    }
+    [SerializeField] float speed = 2;
+    [SerializeField] float angularRotation = 90;
 
-    // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime);
+        Vector3 targetForward = target.position - transform.position;
+        Quaternion targetRotation = Quaternion.LookRotation(targetForward);
+
+        transform.position += transform.forward * speed * Time.deltaTime;
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, angularRotation*Time.deltaTime);
+
     }
 }
