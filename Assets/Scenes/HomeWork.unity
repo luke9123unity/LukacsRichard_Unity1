@@ -633,8 +633,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2083974598}
-  speed: 2
-  angularRotation: 90
+  speed: 5
+  angularRotation: 180
 --- !u!114 &1330648555
 MonoBehaviour:
   m_ObjectHideFlags: 0

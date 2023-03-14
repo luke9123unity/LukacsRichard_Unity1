@@ -11,6 +11,9 @@ public class FollowerRocket : MonoBehaviour
 
     void Update()
     {
+        if(target == null)
+            return;
+
         Vector3 targetForward = target.position - transform.position;
         Quaternion targetRotation = Quaternion.LookRotation(targetForward);
 
