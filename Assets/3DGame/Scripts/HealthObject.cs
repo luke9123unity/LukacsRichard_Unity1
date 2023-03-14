@@ -5,6 +5,10 @@ public class HealthObject : MonoBehaviour
 {
     [SerializeField, Min(1)] int maxHealth = 100;
     [SerializeField] TMP_Text uiText;
+    [SerializeField] GameObject restartUI;
+    //[SerializeField] Color minColor=Color.red, maxColor = Color.green;
+    [SerializeField] Gradient textColor;
+
     int currentHealth;
 
     void Start()
@@ -38,7 +42,14 @@ public class HealthObject : MonoBehaviour
 
     private void HealthUpdate()
     {
-        if (uiText != null)
-            uiText.text = "Health: " + currentHealth;
+        if (uiText == null)
+            return;
+
+        uiText.text = "HEALTH: " + currentHealth;
+        //uiText.color = Color.Lerp(minColor,maxColor,(float)currentHealth/maxHealth);
+        uiText.color = textColor.Evaluate((float)currentHealth / maxHealth);
+
+        restartUI.SetActive(!IsAlive());
+
     }
 }

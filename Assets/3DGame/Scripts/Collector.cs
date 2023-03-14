@@ -21,7 +21,7 @@ public class Collector : MonoBehaviour
     private void NewMethod()
     {
         if (uiText != null)
-            uiText.text = "Score: " + pointsCollected;
+            uiText.text = "SCORE: " + pointsCollected;
     }
 
     public int Points() { return pointsCollected; }
