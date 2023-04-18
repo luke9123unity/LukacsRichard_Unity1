@@ -2604,6 +2604,9 @@ MonoBehaviour:
   lineRenderer: {fileID: 1278098785}
   speed: 10
   simulationTime: 1
+  raycastMak:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!120 &1278098785
 LineRenderer:
   m_ObjectHideFlags: 0

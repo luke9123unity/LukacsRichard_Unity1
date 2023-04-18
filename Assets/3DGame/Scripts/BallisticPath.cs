@@ -7,6 +7,7 @@ public class BallisticPath : MonoBehaviour
     [SerializeField] LineRenderer lineRenderer;
     [SerializeField] float speed = 10;
     [SerializeField, Min(0)] float simulationTime = 1;
+    [SerializeField] LayerMask raycastMak;
 
     // Update is called once per frame
     void Update()
@@ -32,7 +33,7 @@ public class BallisticPath : MonoBehaviour
             Vector3 dir = position - lastPosition;
             Ray ray = new Ray(lastPosition, dir);
 
-            bool isHit = Physics.Raycast(ray,out RaycastHit hitInfo, dir.magnitude);
+            bool isHit = Physics.Raycast(ray,out RaycastHit hitInfo, dir.magnitude, raycastMak);
 
             if (isHit)
             {
