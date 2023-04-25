@@ -7,6 +7,9 @@ public class CoinAnimation : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] AudioSource blinkSound;
 
+ //   [SerializeField] List<AudioClip> clips;
+    [SerializeField] AudioSet audioSet;
+
     void Update()
     {
         Collector[] collectors = FindObjectsOfType<Collector>();
@@ -31,6 +34,10 @@ public class CoinAnimation : MonoBehaviour
 
     public void Blink()
     {
+        blinkSound.clip = audioSet.GetRandom();
+        //int randomIndex = Random.Range(0, clips.Count);
+       // blinkSound.clip = clips[randomIndex];
+
         blinkSound.Play();
     }
 }

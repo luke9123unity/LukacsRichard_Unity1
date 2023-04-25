@@ -1,14 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] string sceneName;
+
+    public static GameManager instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Debug.LogError("More than one GameManager");
+    }
     public void RestartGame()
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadSceneAsync(sceneName);
     }
+    public void NextLevel()
+    {
+        SceneManager.LoadSceneAsync(sceneName);
+    }
+
 }
